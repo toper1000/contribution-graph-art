@@ -13,7 +13,7 @@ let matrix = [
 const COL_NUM = matrix[0].length;
 const ROW_NUM = 7;
 
-let startDate = new Date("2025-06-1T12:00:00"); // must be a Sunday
+let startDate = new Date("2025-06-01T12:00:00"); // must be a Sunday
 
 for (let col = 0; col < COL_NUM; col++) {
     for (let row = 0; row < ROW_NUM; row++) {
