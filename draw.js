@@ -20,9 +20,15 @@ for (let col = 0; col < COL_NUM; col++) {
         if (matrix[row][col] == 1) {
             const gitDateString = startDate.toISOString();
 
-            const commitCommand = `GIT_AUTHOR_DATE="${gitDateString}" GIT_COMMITTER_DATE="${gitDateString}" git commit --allow-empty -m "Pixel"`;
+            const commitCommand = `git commit --allow-empty -m "Pixel"`;
 
-            execSync(commitCommand);
+            execSync(commitCommand, {
+                env: {
+                    ...process.env,
+                    GIT_AUTHOR_DATE: gitDateString,
+                    GIT_COMMITTER_DATE: gitDateString,
+                },
+            });
         }
         startDate.setDate(startDate.getDate() + 1);
     }
